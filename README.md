@@ -18,7 +18,22 @@ This project provides a Rust client library for easily accessing the Nulab Backl
 ## Authentication
 
 ### API Key Authentication
-TODO
+
+```rust
+use backlog_client::{BacklogClient, Result};
+
+#[tokio::main]
+async fn main() -> Result<()> {
+    // Initialize the client with your Backlog space URL and API key
+    let client = BacklogClient::new("https://yourspace.backlog.com", "your_api_key");
+    
+    // Get space information
+    let space = client.get_space().await?;
+    println!("Space: {}", space.name);
+    
+    Ok(())
+}
+```
 
 ### OAuth 2.0 Authentication
 TODO
@@ -28,7 +43,7 @@ TODO
 ### Status: Completed / In Progress / Not Implemented
 
 #### Space API
-- [ ] `GET /api/v2/space` - Get space information
+- [x] `GET /api/v2/space` - Get space information
 - [ ] `GET /api/v2/space/activities` - Get recent activities
 - [ ] `GET /api/v2/space/image` - Get space icon image
 - [ ] `GET /api/v2/space/notification` - Get space notification settings
@@ -209,11 +224,58 @@ TODO
 
 ## Development
 
+## Development
+
 ### Setup
-TODO
+
+1. Clone the repository:
+```bash
+git clone https://github.com/katayama8000/backlog-client-rust.git
+cd backlog-client-rust
+```
+
+2. Create a `.env` file with your Backlog credentials:
+```bash
+cp .env.example .env
+```
+
+Edit `.env` file:
+```
+BACKLOG_BASE_URL=https://yourspace.backlog.com
+BACKLOG_API_KEY=your_api_key_here
+```
+
+3. Build the project:
+```bash
+cargo build
+```
 
 ### Testing
-TODO
+
+#### Basic Test
+```bash
+# Create .env file with your credentials
+echo "BACKLOG_BASE_URL=https://yourspace.backlog.com" > .env
+echo "BACKLOG_API_KEY=your_api_key_here" >> .env
+
+# Run basic example
+cargo run --example basic_usage
+```
+
+#### Debug Client
+For debugging and testing the client:
+```bash
+# Simple debug test
+cargo run --example debug_client
+
+# Advanced debug with interactive mode
+cargo run --example debug_advanced -- --interactive
+```
+
+#### Unit Tests
+```bash
+cargo test
+```
 
 ## License
 
