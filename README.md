@@ -46,8 +46,10 @@ Currently implemented:
 - ✅ Space API: `GET /api/v2/space` - Get space information
 
 ## Installation
+TODO
 
 ## Usage Examples
+TODO
 
 ### Basic Usage
 
@@ -65,61 +67,7 @@ async fn main() -> Result<()> {
 }
 ```
 
-### Using .env file
-
-Create a `.env` file:
-```
-BACKLOG_BASE_URL=https://yourspace.backlog.com
-BACKLOG_API_KEY=your_api_key_here
-```
-
-```rust
-use backlog_client::{BacklogClient, Result};
-use dotenv::dotenv;
-use std::env;
-
-#[tokio::main]
-async fn main() -> Result<()> {
-    dotenv().ok();
-    
-    let base_url = env::var("BACKLOG_BASE_URL").expect("BACKLOG_BASE_URL not set");
-    let api_key = env::var("BACKLOG_API_KEY").expect("BACKLOG_API_KEY not set");
-    
-    let client = BacklogClient::new(&base_url, &api_key);
-    let space = client.get_space().await?;
-    println!("Space: {}", space.name);
-    
-    Ok(())
-}
-```
-
 ## Development
-
-## Development
-
-### Setup
-
-1. Clone the repository:
-```bash
-git clone https://github.com/katayama8000/backlog-client-rust.git
-cd backlog-client-rust
-```
-
-2. Create a `.env` file with your Backlog credentials:
-```bash
-cp .env.example .env
-```
-
-Edit `.env` file:
-```
-BACKLOG_BASE_URL=https://yourspace.backlog.com
-BACKLOG_API_KEY=your_api_key_here
-```
-
-3. Build the project:
-```bash
-cargo build
-```
 
 ### Testing
 
