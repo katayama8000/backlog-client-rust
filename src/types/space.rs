@@ -13,7 +13,21 @@ pub struct Space {
     #[serde(rename = "reportSendTime")]
     pub report_send_time: String,
     #[serde(rename = "textFormattingRule")]
-    pub text_formatting_rule: String,
+    pub text_formatting_rule: TextFormattingRule,
     pub created: String,
+    pub updated: String,
+}
+
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq)]
+pub enum TextFormattingRule {
+    #[serde(rename = "backlog")]
+    Backlog,
+    #[serde(rename = "markdown")]
+    Markdown,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Notifications {
+    pub content: String,
     pub updated: String,
 }
