@@ -1,36 +1,7 @@
-//! # Backlog Client for Rust
-//!
-//! A Rust client library for the Backlog API with API key authentication support.
-//!
-//! ## Features
-//!
-//! - API key authentication
-//! - Asynchronous requests using tokio and reqwest
-//! - Type-safe JSON serialization/deserialization
-//! - Comprehensive error handling
-//! - Space API support
-//!
-//! ## Quick Start
-//!
-//! ```no_run
-//! use backlog_client::{BacklogClient, Result};
-//!
-//! #[tokio::main]
-//! async fn main() -> Result<()> {
-//!     let client = BacklogClient::new("https://yourspace.backlog.com", "your_api_key");
-//!     
-//!     // Get space information
-//!     let space = client.get_space().await?;
-//!     println!("Space: {}", space.name);
-//!     
-//!     Ok(())
-//! }
-//! ```
-
 mod client;
 mod types;
 
-pub use client::{BacklogClient, BacklogError, Result};
+pub use client::{BacklogClient, BacklogError, BacklogResult};
 pub use types::*;
 
 // Re-export commonly used types for convenience
@@ -53,9 +24,11 @@ mod tests {
 
     #[test]
     fn test_client_with_custom_client() {
-        let http_client = reqwest::Client::new();
-        let client =
-            BacklogClient::with_client("https://test.backlog.com", "test_key", http_client);
+        let client = BacklogClient::with_client(
+            "https://test.backlog.com",
+            "test_key",
+            reqwest::Client::new(),
+        );
         // Test that custom client creation works
         drop(client);
     }

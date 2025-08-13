@@ -16,7 +16,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: Login to crates.io
-        run: cargo login ${{ secrets.CRATES_IO_TOKEN_FOR_GYAZO_CLIENT }}
+        run: cargo login ${{ secrets.CRATES_IO_TOKEN_FOR_BACKLOG_CLIENT }}
 
       - name: Publish to crates.io
         run: cargo publish
