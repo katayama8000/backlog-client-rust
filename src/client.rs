@@ -69,7 +69,7 @@ impl BacklogClient {
             &self.base_url
         };
 
-        let mut url = Url::parse(&format!("{}{}", base_url, endpoint))?;
+        let mut url = Url::parse(&format!("{base_url}{endpoint}"))?;
         url.query_pairs_mut().append_pair("apiKey", &self.api_key);
         Ok(url)
     }
