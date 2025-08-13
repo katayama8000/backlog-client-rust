@@ -17,7 +17,7 @@ async fn main() -> BacklogResult<()> {
     println!("executing...");
     match client.get_space().await {
         Ok(space) => {
-          println!("{:?}", space);
+            println!("{:?}", space);
         }
         Err(e) => println!("Error getting space: {:?}", e),
     }
