@@ -2,6 +2,14 @@
 name = "backlog-client"
 version = "0.1.1"
 edition = "2024"
+readme = "README.md"
+authors = ["katayama8000 <https://github.com/katayama8000>"]
+description = "Backlog Client For Rust"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/katayama8000/backlog-client"
+homepage = "https://github.com/katayama8000/backlog-client-rust/blob/main/README.md"
+keywords = ["backlog", "api", "client"]
+categories = ["api-bindings", "web-programming"]
 
 [dependencies]
 reqwest = { version = "0.12.23", features = ["json"] }
