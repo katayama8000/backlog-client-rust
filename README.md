@@ -42,14 +42,7 @@ TODO
 
 For a complete list of supported Backlog API endpoints, see [API.md](API.md).
 
-Currently implemented:
-- ✅ Space API: `GET /api/v2/space` - Get space information
-
-## Installation
-TODO
-
 ## Usage Examples
-TODO
 
 ### Basic Usage
 
@@ -66,36 +59,6 @@ async fn main() -> Result<()> {
     Ok(())
 }
 ```
-
-## Development
-
-### Testing
-
-#### Basic Test
-```bash
-# Create .env file with your credentials
-echo "BACKLOG_BASE_URL=https://yourspace.backlog.com" > .env
-echo "BACKLOG_API_KEY=your_api_key_here" >> .env
-
-# Run basic example
-cargo run --example basic_usage
-```
-
-#### Debug Client
-For debugging and testing the client:
-```bash
-# Simple debug test
-cargo run --example debug_client
-
-# Advanced debug with interactive mode
-cargo run --example debug_advanced -- --interactive
-```
-
-#### Unit Tests
-```bash
-cargo test
-```
-
 ## License
 
 MIT License
